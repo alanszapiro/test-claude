@@ -119,7 +119,7 @@ export const menuItems: MenuItem[] = [
     price: 48.5,
     category: "bowls",
     emoji: "🥗",
-    image: "/itens/Salada Verde com Boursin.png",
+    image: "/itens/Salda Verde com Boursin.png",
   },
   {
     id: "salada-verde-boursin-salmao",
