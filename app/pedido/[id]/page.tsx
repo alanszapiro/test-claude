@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase, type Order, type OrderStatus } from "../../lib/supabase";
 
@@ -59,8 +59,9 @@ function buildWhatsAppText(order: Order): string {
 export default function OrderPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = use(params);
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
   const [whatsappOpened, setWhatsappOpened] = useState(false);
@@ -70,7 +71,7 @@ export default function OrderPage({
       const { data } = await supabase
         .from("orders")
         .select("*")
-        .eq("id", params.id)
+        .eq("id", id)
         .single();
       setOrder(data);
       setLoading(false);
@@ -80,7 +81,7 @@ export default function OrderPage({
     // Poll every 30s to update status
     const interval = setInterval(fetchOrder, 30000);
     return () => clearInterval(interval);
-  }, [params.id]);
+  }, [id]);
 
   const currentStepIndex =
     order ? (STATUS_INDEX[order.status] ?? 0) : 0;
