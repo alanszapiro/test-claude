@@ -7,8 +7,20 @@ import CartDrawer from "./components/CartDrawer";
 import MenuCard from "./components/MenuCard";
 import { categories, menuItems } from "./lib/menu-data";
 
+function isOpen(): boolean {
+  const now = new Date();
+  // São Paulo timezone offset (UTC-3)
+  const sp = new Date(now.toLocaleString("en-US", { timeZone: "America/Sao_Paulo" }));
+  const day = sp.getDay(); // 0=Sun, 1=Mon, 2=Tue ... 6=Sat
+  const hour = sp.getHours() + sp.getMinutes() / 60;
+  if (day === 1) return false; // Monday closed
+  if (day === 0) return hour >= 8 && hour < 17; // Sunday 8–17
+  return hour >= 8 && hour < 19.5; // Tue–Sat 8–19:30
+}
+
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("sanduiches");
+  const open = isOpen();
 
   const filtered = menuItems.filter((item) => item.category === activeCategory);
 
@@ -19,17 +31,16 @@ export default function Home() {
 
       {/* Hero Banner — photo background */}
       <section className="relative h-72 sm:h-96 overflow-hidden">
-        {/* Foto do café — salve como public/cafe.jpg */}
+        {/* Fallback — shows behind photo */}
+        <div className="absolute inset-0 bg-[#1A3028]" />
+        {/* Foto do café */}
         <Image
           src="/cafe.png"
           alt="Adara Café"
           fill
           className="object-cover object-center"
           priority
-          onError={() => {/* fallback handled by overlay */}}
         />
-        {/* Fallback gradient (aparece caso a foto não exista) */}
-        <div className="absolute inset-0 bg-[#1A3028]" />
         {/* Overlay escuro sobre a foto */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
 
@@ -38,8 +49,8 @@ export default function Home() {
           <div className="flex items-end justify-between">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#C01818] text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Aberto agora
+                <span className={`text-white text-xs font-bold px-3 py-1 rounded-full ${open ? "bg-[#C01818]" : "bg-gray-500"}`}>
+                  {open ? "Aberto agora" : "Fechado"}
                 </span>
                 <span className="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
                   Ter – Dom

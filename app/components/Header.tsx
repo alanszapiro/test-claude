@@ -15,7 +15,7 @@ export default function Header() {
           </div>
           <div>
             <p className="text-white font-bold text-lg leading-tight tracking-wide">Adara Café</p>
-            <p className="text-green-300 text-xs leading-tight">Delivery próprio · sem taxas</p>
+            <p className="text-green-300 text-xs leading-tight">Pinheiros · Delivery grátis</p>
           </div>
         </Link>
 
