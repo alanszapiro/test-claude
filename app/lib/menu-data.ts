@@ -34,6 +34,7 @@ export const menuItems: MenuItem[] = [
     price: 46,
     category: "sanduiches",
     emoji: "🥪",
+    image: "/itens/spicy tuna.png",
   },
   {
     id: "spicy-tuna-avocado",
@@ -43,6 +44,7 @@ export const menuItems: MenuItem[] = [
     category: "sanduiches",
     emoji: "🥪",
     badge: "Favorito",
+    image: "/itens/spicy tuna com avocado.png",
   },
   {
     id: "tuna-melt",
@@ -51,6 +53,7 @@ export const menuItems: MenuItem[] = [
     price: 48.5,
     category: "sanduiches",
     emoji: "🥪",
+    image: "/itens/tuna melt.png",
   },
   {
     id: "egg-salad",
@@ -59,6 +62,7 @@ export const menuItems: MenuItem[] = [
     price: 41.5,
     category: "sanduiches",
     emoji: "🥪",
+    image: "/itens/egg salad.png",
   },
   {
     id: "egg-salad-avocado",
@@ -67,6 +71,7 @@ export const menuItems: MenuItem[] = [
     price: 49.5,
     category: "sanduiches",
     emoji: "🥪",
+    image: "/itens/egg salada com avocado.png",
   },
   {
     id: "salmao-defumado",
@@ -76,6 +81,7 @@ export const menuItems: MenuItem[] = [
     category: "sanduiches",
     emoji: "🥪",
     badge: "Especial",
+    image: "/itens/salmão defumado.png",
   },
   {
     id: "queijo-quente",
@@ -84,6 +90,7 @@ export const menuItems: MenuItem[] = [
     price: 38,
     category: "sanduiches",
     emoji: "🥪",
+    image: "/itens/queijo quente.png",
   },
   {
     id: "queijo-quente-picles",
@@ -92,6 +99,7 @@ export const menuItems: MenuItem[] = [
     price: 44,
     category: "sanduiches",
     emoji: "🥪",
+    image: "/itens/Queijo Quente com Picles e Mostarda à L'Ancienne.png",
   },
 
   // Saladas & Bowls
@@ -102,6 +110,7 @@ export const menuItems: MenuItem[] = [
     price: 45,
     category: "bowls",
     emoji: "🥗",
+    image: "/itens/Hommus.png",
   },
   {
     id: "salada-verde-boursin",
@@ -110,6 +119,7 @@ export const menuItems: MenuItem[] = [
     price: 48.5,
     category: "bowls",
     emoji: "🥗",
+    image: "/itens/Salada Verde com Boursin.png",
   },
   {
     id: "salada-verde-boursin-salmao",
@@ -119,6 +129,7 @@ export const menuItems: MenuItem[] = [
     category: "bowls",
     emoji: "🥗",
     badge: "Premium",
+    image: "/itens/Salada Verde com Boursin e Salmão Defumado.png",
   },
 
   // Pães
@@ -129,6 +140,7 @@ export const menuItems: MenuItem[] = [
     price: 11.5,
     category: "paes",
     emoji: "🧀",
+    image: "/itens/Pão de Queijo.png",
   },
   {
     id: "pao-queijo-requeijao",
@@ -137,6 +149,7 @@ export const menuItems: MenuItem[] = [
     price: 17,
     category: "paes",
     emoji: "🧀",
+    image: "/itens/Pão de Queijo com Requeijão.png",
   },
   {
     id: "pao-chapa",
@@ -145,6 +158,7 @@ export const menuItems: MenuItem[] = [
     price: 16,
     category: "paes",
     emoji: "🍞",
+    image: "/itens/Pão na Chapa.png",
   },
   {
     id: "pao-chapa-requeijao",
@@ -153,6 +167,7 @@ export const menuItems: MenuItem[] = [
     price: 21.5,
     category: "paes",
     emoji: "🍞",
+    image: "/itens/Pão na Chapa com Requeijão.png",
   },
 
   // Doces
@@ -164,6 +179,7 @@ export const menuItems: MenuItem[] = [
     category: "doces",
     emoji: "🍫",
     badge: "Irresistível",
+    image: "/itens/Rabanada com chocolate.png",
   },
   {
     id: "rabanada-morango",
@@ -172,6 +188,7 @@ export const menuItems: MenuItem[] = [
     price: 27,
     category: "doces",
     emoji: "🍓",
+    image: "/itens/rabanada de morango.png",
   },
   {
     id: "brigadeiro",
@@ -180,6 +197,7 @@ export const menuItems: MenuItem[] = [
     price: 9.5,
     category: "doces",
     emoji: "🍬",
+    image: "/itens/brigadeiro.png",
   },
 
   // Sucos e Chás
@@ -190,6 +208,7 @@ export const menuItems: MenuItem[] = [
     price: 19.5,
     category: "sucos",
     emoji: "🍋",
+    image: "/itens/limonada rosa.png",
   },
   {
     id: "mate-limao",
@@ -198,6 +217,7 @@ export const menuItems: MenuItem[] = [
     price: 18.5,
     category: "sucos",
     emoji: "🍵",
+    image: "/itens/mate com limão.png",
   },
   {
     id: "cha-hibisco",
@@ -206,6 +226,7 @@ export const menuItems: MenuItem[] = [
     price: 17,
     category: "sucos",
     emoji: "🌺",
+    image: "/itens/chá de hibisco gelado.png",
   },
   {
     id: "soda-roma",
@@ -214,6 +235,7 @@ export const menuItems: MenuItem[] = [
     price: 22,
     category: "sucos",
     emoji: "🍹",
+    image: "/itens/soda de romã e limão siciliano.png",
   },
 
   // Bebidas
@@ -266,6 +288,7 @@ export const menuItems: MenuItem[] = [
     price: 19.5,
     category: "cafes",
     emoji: "☕",
+    image: "/itens/latte gelado.png",
   },
   {
     id: "latte-caramelo",
@@ -274,6 +297,7 @@ export const menuItems: MenuItem[] = [
     price: 21,
     category: "cafes",
     emoji: "☕",
+    image: "/itens/latte de caramelo gelado.png",
   },
   {
     id: "latte-caramelo-aveia",
@@ -282,6 +306,7 @@ export const menuItems: MenuItem[] = [
     price: 25.5,
     category: "cafes",
     emoji: "☕",
+    image: "/itens/Latte de Caramelo Gelado com Leite de Aveia.png",
   },
   {
     id: "latte-flor-laranjeira",
@@ -290,5 +315,6 @@ export const menuItems: MenuItem[] = [
     price: 26.5,
     category: "cafes",
     emoji: "🌸",
+    image: "/itens/Latte de Flor de Laranjeira Gelado.png",
   },
 ];
