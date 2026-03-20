@@ -11,9 +11,8 @@ const steps = [
 
 export default function OrderPage({ params }: { params: { id: string } }) {
   return (
-    <div className="min-h-screen bg-[#FFF8F0] flex flex-col">
-      {/* Header */}
-      <header className="bg-[#3D1A00] h-14 flex items-center px-4">
+    <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
+      <header className="bg-[#C01818] h-14 flex items-center px-4">
         <h1 className="text-white font-bold text-lg">Acompanhe seu pedido</h1>
       </header>
 
@@ -21,30 +20,30 @@ export default function OrderPage({ params }: { params: { id: string } }) {
         {/* Success card */}
         <div className="bg-white rounded-2xl shadow-sm p-6 text-center space-y-3">
           <div className="text-6xl">🎉</div>
-          <h2 className="text-xl font-extrabold text-[#3D1A00]">Pedido confirmado!</h2>
+          <h2 className="text-xl font-extrabold text-[#1A0000]">Pedido confirmado!</h2>
           <p className="text-gray-500 text-sm">
             Obrigado por pedir no Adara Café. Já começamos a preparar o seu pedido com muito carinho!
           </p>
-          <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 inline-block">
+          <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 inline-block">
             <p className="text-xs text-gray-500 mb-1">Código do pedido</p>
-            <p className="text-2xl font-extrabold text-[#C8860A] tracking-widest">
+            <p className="text-2xl font-extrabold text-[#C01818] tracking-widest">
               #{params.id}
             </p>
           </div>
         </div>
 
         {/* Estimated time */}
-        <div className="bg-[#C8860A] rounded-2xl p-4 flex items-center gap-4">
+        <div className="bg-[#C01818] rounded-2xl p-4 flex items-center gap-4">
           <span className="text-4xl">⏱️</span>
           <div>
             <p className="text-white font-bold text-lg">Previsão de entrega</p>
-            <p className="text-amber-100 text-sm">20 – 40 minutos</p>
+            <p className="text-red-100 text-sm">20 – 40 minutos</p>
           </div>
         </div>
 
         {/* Order tracking */}
         <div className="bg-white rounded-2xl shadow-sm p-5 space-y-4">
-          <h3 className="font-bold text-[#3D1A00]">Status do pedido</h3>
+          <h3 className="font-bold text-[#1A0000]">Status do pedido</h3>
           <ol className="space-y-4">
             {steps.map((step, idx) => (
               <li key={step.id} className="flex items-start gap-3">
@@ -52,7 +51,7 @@ export default function OrderPage({ params }: { params: { id: string } }) {
                   <div
                     className={`w-9 h-9 rounded-full flex items-center justify-center text-lg border-2 ${
                       step.done
-                        ? "border-[#C8860A] bg-amber-50"
+                        ? "border-[#C01818] bg-red-50"
                         : "border-gray-200 bg-gray-50"
                     }`}
                   >
@@ -61,7 +60,7 @@ export default function OrderPage({ params }: { params: { id: string } }) {
                   {idx < steps.length - 1 && (
                     <div
                       className={`w-0.5 h-6 mt-1 ${
-                        step.done ? "bg-[#C8860A]" : "bg-gray-200"
+                        step.done ? "bg-[#C01818]" : "bg-gray-200"
                       }`}
                     />
                   )}
@@ -69,13 +68,13 @@ export default function OrderPage({ params }: { params: { id: string } }) {
                 <div className="pt-1.5">
                   <p
                     className={`text-sm font-semibold ${
-                      step.done ? "text-[#3D1A00]" : "text-gray-400"
+                      step.done ? "text-[#1A0000]" : "text-gray-400"
                     }`}
                   >
                     {step.label}
                   </p>
                   {step.done && step.id === 2 && (
-                    <p className="text-xs text-[#C8860A] font-medium animate-pulse mt-0.5">
+                    <p className="text-xs text-[#C01818] font-medium animate-pulse mt-0.5">
                       Em andamento...
                     </p>
                   )}
@@ -89,7 +88,7 @@ export default function OrderPage({ params }: { params: { id: string } }) {
         <div className="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-3">
           <span className="text-3xl">📞</span>
           <div>
-            <p className="text-sm font-semibold text-[#3D1A00]">Precisa de ajuda?</p>
+            <p className="text-sm font-semibold text-[#1A0000]">Precisa de ajuda?</p>
             <p className="text-xs text-gray-500">Entre em contato pelo WhatsApp</p>
           </div>
           <a
@@ -104,7 +103,7 @@ export default function OrderPage({ params }: { params: { id: string } }) {
 
         <Link
           href="/"
-          className="block w-full text-center bg-[#3D1A00] hover:bg-[#5C2E0A] transition-colors text-white py-3 rounded-full font-bold"
+          className="block w-full text-center bg-[#C01818] hover:bg-[#8B0000] transition-colors text-white py-3 rounded-full font-bold"
         >
           ☕ Fazer novo pedido
         </Link>

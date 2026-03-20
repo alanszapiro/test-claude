@@ -4,11 +4,11 @@ import type { MenuItem } from "../lib/menu-data";
 import { useCart } from "../lib/cart-context";
 
 const bgColors: Record<string, string> = {
-  cafes: "bg-amber-50",
-  lanches: "bg-orange-50",
-  refeicoes: "bg-green-50",
-  sobremesas: "bg-pink-50",
-  bebidas: "bg-blue-50",
+  sanduiches: "bg-orange-50",
+  bowls: "bg-green-50",
+  paes: "bg-yellow-50",
+  doces: "bg-red-50",
+  sucos: "bg-amber-50",
 };
 
 export default function MenuCard({ item }: { item: MenuItem }) {
@@ -17,9 +17,11 @@ export default function MenuCard({ item }: { item: MenuItem }) {
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
-      <div className={`${bgColors[item.category] ?? "bg-gray-50"} h-28 flex items-center justify-center text-5xl relative`}>
+      <div
+        className={`${bgColors[item.category] ?? "bg-gray-50"} h-28 flex items-center justify-center text-5xl relative`}
+      >
         {item.badge && (
-          <span className="absolute top-2 left-2 bg-[#C8860A] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+          <span className="absolute top-2 left-2 bg-[#C01818] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
             {item.badge}
           </span>
         )}
@@ -27,22 +29,26 @@ export default function MenuCard({ item }: { item: MenuItem }) {
       </div>
 
       <div className="p-3 flex flex-col flex-1 gap-1">
-        <h3 className="font-bold text-[#3D1A00] text-sm leading-tight">{item.name}</h3>
+        <h3 className="font-bold text-[#1A0000] text-sm leading-tight">{item.name}</h3>
         <p className="text-gray-500 text-xs leading-relaxed flex-1">{item.description}</p>
 
         <div className="flex items-center justify-between mt-2">
-          <span className="font-bold text-[#3D1A00] text-base">
-            R$ {item.price.toFixed(2).replace(".", ",")}
+          <span className="font-bold text-[#1A0000] text-base">
+            R${" "}
+            {item.price.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
           </span>
 
           {cartItem ? (
             <div className="flex items-center gap-2">
-              <span className="text-xs text-[#C8860A] font-semibold">
+              <span className="text-xs text-[#C01818] font-semibold">
                 {cartItem.quantity} no carrinho
               </span>
               <button
                 onClick={() => addItem(item)}
-                className="w-8 h-8 rounded-full bg-[#C8860A] text-white flex items-center justify-center text-lg font-bold hover:bg-[#B5750A] transition-colors"
+                className="w-8 h-8 rounded-full bg-[#C01818] text-white flex items-center justify-center text-lg font-bold hover:bg-[#8B0000] transition-colors"
                 aria-label="Adicionar mais"
               >
                 +
@@ -51,7 +57,7 @@ export default function MenuCard({ item }: { item: MenuItem }) {
           ) : (
             <button
               onClick={() => addItem(item)}
-              className="w-8 h-8 rounded-full bg-[#C8860A] text-white flex items-center justify-center text-lg font-bold hover:bg-[#B5750A] transition-colors"
+              className="w-8 h-8 rounded-full bg-[#C01818] text-white flex items-center justify-center text-lg font-bold hover:bg-[#8B0000] transition-colors"
               aria-label="Adicionar ao carrinho"
             >
               +
