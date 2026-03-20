@@ -52,7 +52,7 @@ export default function Home() {
                 Adara Café
               </h1>
               <p className="text-gray-200 text-sm mt-1.5">
-                Sanduíches · Bowls · Doces — inspirado em NY
+                Sanduíches artesanais · Bowls · Doces · Pinheiros
               </p>
             </div>
             <div className="hidden sm:flex flex-col items-end gap-1 text-right shrink-0 ml-4">
@@ -132,7 +132,7 @@ export default function Home() {
             </div>
             <div>
               <p className="font-bold text-white text-lg tracking-wide leading-tight">Adara Café</p>
-              <p className="text-green-300 text-xs mt-0.5">Inspirado em Nova York · Pinheiros</p>
+              <p className="text-green-300 text-xs mt-0.5">Pinheiros, São Paulo</p>
             </div>
           </div>
 

@@ -12,6 +12,7 @@ export type MenuItem = {
   category: string;
   emoji: string;
   badge?: string;
+  image?: string;
 };
 
 export const categories: Category[] = [
