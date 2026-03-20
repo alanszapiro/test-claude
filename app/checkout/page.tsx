@@ -92,7 +92,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
-      <header className="bg-[#C01818] h-14 flex items-center px-4 gap-3">
+      <header className="bg-[#1A3028] h-14 flex items-center px-4 gap-3">
         <Link href="/" className="text-white text-2xl leading-none">←</Link>
         <h1 className="text-white font-bold text-lg">Finalizar pedido</h1>
       </header>

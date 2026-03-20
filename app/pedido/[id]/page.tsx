@@ -12,7 +12,7 @@ const steps = [
 export default function OrderPage({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
-      <header className="bg-[#C01818] h-14 flex items-center px-4">
+      <header className="bg-[#1A3028] h-14 flex items-center px-4">
         <h1 className="text-white font-bold text-lg">Acompanhe seu pedido</h1>
       </header>
 
