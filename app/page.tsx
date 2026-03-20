@@ -32,7 +32,7 @@ export default function Home() {
       {/* Hero Banner — photo background */}
       <section className="relative h-72 sm:h-96 overflow-hidden">
         {/* Fallback — shows behind photo */}
-        <div className="absolute inset-0 bg-[#1A3028]" />
+        <div className="absolute inset-0 bg-[#7A0A0A]" />
         {/* Foto do café */}
         <Image
           src="/cafe.png"
@@ -134,7 +134,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1A3028] mt-8 px-4 py-10">
+      <footer className="bg-[#7A0A0A] mt-8 px-4 py-10">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row gap-8 items-start justify-between">
           {/* Brand */}
           <div className="flex items-center gap-3">
@@ -143,27 +143,27 @@ export default function Home() {
             </div>
             <div>
               <p className="font-bold text-white text-lg tracking-wide leading-tight">Adara Café</p>
-              <p className="text-green-300 text-xs mt-0.5">Pinheiros, São Paulo</p>
+              <p className="text-red-200 text-xs mt-0.5">Pinheiros, São Paulo</p>
             </div>
           </div>
 
           {/* Info */}
           <div className="flex flex-col sm:flex-row gap-8 text-sm">
             <div>
-              <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-2">Endereço</p>
+              <p className="text-red-400 font-semibold text-xs uppercase tracking-widest mb-2">Endereço</p>
               <p className="text-gray-200">R. Dr. Virgílio de Carvalho Pinto, 179</p>
               <p className="text-gray-400">Pinheiros · São Paulo – SP</p>
               <p className="text-gray-400">CEP 05415-030</p>
             </div>
             <div>
-              <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-2">Horários</p>
+              <p className="text-red-400 font-semibold text-xs uppercase tracking-widest mb-2">Horários</p>
               <p className="text-gray-200">Terça a Sábado</p>
               <p className="text-gray-400">08:00 – 19:30</p>
               <p className="text-gray-200 mt-1">Domingo</p>
               <p className="text-gray-400">08:00 – 17:00</p>
             </div>
             <div>
-              <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-2">Redes</p>
+              <p className="text-red-400 font-semibold text-xs uppercase tracking-widest mb-2">Redes</p>
               <a
                 href="https://www.instagram.com/adaracafe.sp/"
                 target="_blank"

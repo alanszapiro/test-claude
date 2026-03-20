@@ -22,11 +22,11 @@ export default function CartDrawer() {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-4 py-4 bg-[#1A3028]">
+        <div className="flex items-center justify-between px-4 py-4 bg-[#7A0A0A]">
           <h2 className="text-white font-bold text-lg">Seu Pedido 🛒</h2>
           <button
             onClick={() => setIsOpen(false)}
-            className="text-white text-2xl hover:text-green-200 transition-colors leading-none"
+            className="text-white text-2xl hover:text-red-200 transition-colors leading-none"
             aria-label="Fechar carrinho"
           >
             ×
@@ -109,7 +109,7 @@ export default function CartDrawer() {
               </div>
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Taxa de entrega</span>
-                <span className="text-green-600 font-medium">Grátis</span>
+                <span className="text-[#C01818] font-medium">Grátis</span>
               </div>
               <div className="flex justify-between font-bold text-[#1A0000]">
                 <span>Total</span>

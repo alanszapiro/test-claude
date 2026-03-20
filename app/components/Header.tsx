@@ -7,7 +7,7 @@ export default function Header() {
   const { count, setIsOpen } = useCart();
 
   return (
-    <header className="sticky top-0 z-40 bg-[#1A3028] shadow-lg">
+    <header className="sticky top-0 z-40 bg-[#7A0A0A] shadow-lg">
       <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-9 h-9 rounded-full bg-[#C01818] flex items-center justify-center font-bold text-lg text-white">
@@ -15,7 +15,7 @@ export default function Header() {
           </div>
           <div>
             <p className="text-white font-bold text-lg leading-tight tracking-wide">Adara Café</p>
-            <p className="text-green-300 text-xs leading-tight">Pinheiros · Delivery grátis</p>
+            <p className="text-red-200 text-xs leading-tight">Pinheiros · Delivery grátis</p>
           </div>
         </Link>
 
