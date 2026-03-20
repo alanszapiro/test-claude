@@ -17,10 +17,11 @@ export type MenuItem = {
 
 export const categories: Category[] = [
   { id: "sanduiches", name: "Sanduíches", emoji: "🥪" },
-  { id: "bowls", name: "Bowls", emoji: "🥗" },
+  { id: "bowls", name: "Saladas & Bowls", emoji: "🥗" },
   { id: "paes", name: "Pães", emoji: "🍞" },
   { id: "doces", name: "Doces", emoji: "🍫" },
-  { id: "sucos", name: "Sucos", emoji: "🥤" },
+  { id: "sucos", name: "Sucos e Chás", emoji: "🥤" },
+  { id: "cafes", name: "Cafés", emoji: "☕" },
 ];
 
 export const menuItems: MenuItem[] = [
@@ -92,7 +93,7 @@ export const menuItems: MenuItem[] = [
     emoji: "🥪",
   },
 
-  // Bowls
+  // Saladas & Bowls
   {
     id: "hommus",
     name: "Hommus",
@@ -180,37 +181,71 @@ export const menuItems: MenuItem[] = [
     emoji: "🍬",
   },
 
-  // Sucos
+  // Sucos e Chás
   {
-    id: "suco-laranja",
-    name: "Suco de Laranja",
-    description: "Suco natural de laranja espremido na hora",
-    price: 14,
+    id: "limonada-rosa",
+    name: "Limonada Rosa",
+    description: "Limonada suíça com hibisco — Para melhor experiência, beba gelado",
+    price: 19.5,
     category: "sucos",
-    emoji: "🍊",
+    emoji: "🍋",
   },
   {
-    id: "suco-abacaxi-hortela",
-    name: "Suco de Abacaxi com Hortelã",
-    description: "Suco gelado de abacaxi com hortelã fresca",
-    price: 14,
+    id: "mate-limao",
+    name: "Mate com Limão",
+    description: "Chá Mate com limonada suíça — Para melhor experiência, beba gelado",
+    price: 18.5,
     category: "sucos",
-    emoji: "🍍",
+    emoji: "🍵",
   },
   {
-    id: "suco-morango",
-    name: "Suco de Morango",
-    description: "Suco cremoso de morango natural",
-    price: 16,
+    id: "cha-hibisco",
+    name: "Chá de Hibisco Gelado",
+    description: "Chá de hibisco gelado — Para melhor experiência, beba gelado",
+    price: 17,
     category: "sucos",
-    emoji: "🍓",
+    emoji: "🌺",
   },
   {
-    id: "agua-coco",
-    name: "Água de Coco",
-    description: "Água de coco natural gelada",
-    price: 10,
+    id: "soda-roma",
+    name: "Soda de Romã e Limão Siciliano",
+    description: "Soda feita com melaço de romã e compota de limão siciliano",
+    price: 22,
     category: "sucos",
-    emoji: "🥥",
+    emoji: "🍹",
+  },
+
+  // Cafés
+  {
+    id: "latte-gelado",
+    name: "Latte Gelado",
+    description: "Espresso com leite integral — Para melhor experiência, beba gelado",
+    price: 19.5,
+    category: "cafes",
+    emoji: "☕",
+  },
+  {
+    id: "latte-caramelo",
+    name: "Latte de Caramelo Gelado",
+    description: "Espresso com leite integral e caramelo feito na casa — Para melhor experiência, beba gelado",
+    price: 21,
+    category: "cafes",
+    emoji: "☕",
+  },
+  {
+    id: "latte-caramelo-aveia",
+    name: "Latte de Caramelo Gelado com Leite de Aveia",
+    description: "Espresso com leite de aveia Nude e caramelo feito na casa — Para melhor experiência, beba gelado",
+    price: 25.5,
+    category: "cafes",
+    emoji: "☕",
+  },
+  {
+    id: "latte-flor-laranjeira",
+    name: "Latte de Flor de Laranjeira Gelado",
+    description: "Espresso com leite de aveia Nude e xarope de flor de laranjeira — Para melhor experiência, beba gelado",
+    price: 26.5,
+    category: "cafes",
+    emoji: "🌸",
   },
 ];
