@@ -60,10 +60,33 @@ export default function CheckoutPage() {
       return;
     }
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    const orderId = Math.random().toString(36).slice(2, 8).toUpperCase();
+
+    const res = await fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...form,
+        payment,
+        change,
+        items: items.map((i) => ({
+          id: i.id,
+          name: i.name,
+          price: i.price,
+          quantity: i.quantity,
+        })),
+        total,
+      }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      setLoading(false);
+      alert("Erro ao registrar pedido. Tente novamente.");
+      return;
+    }
+
     clearCart();
-    router.push(`/pedido/${orderId}`);
+    router.push(`/pedido/${data.id}`);
   };
 
   const field = (
@@ -199,7 +222,7 @@ export default function CheckoutPage() {
           {loading ? (
             <>
               <span className="animate-spin">⏳</span>
-              Processando pedido...
+              Registrando pedido...
             </>
           ) : (
             `Confirmar pedido — R$ ${total.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
