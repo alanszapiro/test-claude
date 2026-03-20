@@ -22,6 +22,7 @@ export const categories: Category[] = [
   { id: "doces", name: "Doces", emoji: "🍫" },
   { id: "sucos", name: "Sucos e Chás", emoji: "🥤" },
   { id: "cafes", name: "Cafés", emoji: "☕" },
+  { id: "bebidas", name: "Bebidas", emoji: "🥫" },
 ];
 
 export const menuItems: MenuItem[] = [
@@ -213,6 +214,48 @@ export const menuItems: MenuItem[] = [
     price: 22,
     category: "sucos",
     emoji: "🍹",
+  },
+
+  // Bebidas
+  {
+    id: "cerveja-praya",
+    name: "Cerveja Praya Lager 330ml",
+    description: "Cerveja lager artesanal Praya, garrafa 330ml",
+    price: 18.5,
+    category: "bebidas",
+    emoji: "🍺",
+  },
+  {
+    id: "agua-gas",
+    name: "Água Mineral com Gás 350ml",
+    description: "Mamba Water, lata 350ml",
+    price: 9,
+    category: "bebidas",
+    emoji: "💧",
+  },
+  {
+    id: "agua-sem-gas",
+    name: "Água Mineral Sem Gás 350ml",
+    description: "Mamba Water, lata 350ml",
+    price: 9,
+    category: "bebidas",
+    emoji: "💧",
+  },
+  {
+    id: "coca-cola",
+    name: "Coca-Cola 350ml",
+    description: "Lata 350ml",
+    price: 12,
+    category: "bebidas",
+    emoji: "🥤",
+  },
+  {
+    id: "coca-cola-zero",
+    name: "Coca-Cola Zero 350ml",
+    description: "Lata 350ml",
+    price: 12,
+    category: "bebidas",
+    emoji: "🥤",
   },
 
   // Cafés

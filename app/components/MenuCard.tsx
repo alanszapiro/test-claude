@@ -11,6 +11,7 @@ const bgColors: Record<string, string> = {
   doces: "bg-red-50",
   sucos: "bg-pink-50",
   cafes: "bg-amber-50",
+  bebidas: "bg-blue-50",
 };
 
 export default function MenuCard({ item }: { item: MenuItem }) {

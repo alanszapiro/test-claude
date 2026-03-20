@@ -21,7 +21,7 @@ export default function Home() {
       <section className="relative h-72 sm:h-96 overflow-hidden">
         {/* Foto do café — salve como public/cafe.jpg */}
         <Image
-          src="/cafe.jpg"
+          src="/cafe.png"
           alt="Adara Café"
           fill
           className="object-cover object-center"
