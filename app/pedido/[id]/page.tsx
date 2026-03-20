@@ -11,12 +11,12 @@ const steps = [
 
 export default function OrderPage({ params }: { params: { id: string } }) {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex flex-col">
+    <div className="min-h-screen bg-[#FAF8F4] flex flex-col">
       <header className="bg-[#1A3028] h-14 flex items-center px-4">
         <h1 className="text-white font-bold text-lg">Acompanhe seu pedido</h1>
       </header>
 
-      <main className="flex-1 max-w-lg mx-auto w-full px-4 py-8 space-y-6">
+      <main className="flex-1 max-w-lg mx-auto w-full px-4 py-8 space-y-4">
         {/* Success card */}
         <div className="bg-white rounded-2xl shadow-sm p-6 text-center space-y-3">
           <div className="text-6xl">🎉</div>
@@ -24,8 +24,8 @@ export default function OrderPage({ params }: { params: { id: string } }) {
           <p className="text-gray-500 text-sm">
             Obrigado por pedir no Adara Café. Já começamos a preparar o seu pedido com muito carinho!
           </p>
-          <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 inline-block">
-            <p className="text-xs text-gray-500 mb-1">Código do pedido</p>
+          <div className="bg-red-50 border border-red-100 rounded-xl px-4 py-3 inline-block">
+            <p className="text-xs text-gray-400 mb-1">Código do pedido</p>
             <p className="text-2xl font-extrabold text-[#C01818] tracking-widest">
               #{params.id}
             </p>
@@ -33,11 +33,11 @@ export default function OrderPage({ params }: { params: { id: string } }) {
         </div>
 
         {/* Estimated time */}
-        <div className="bg-[#C01818] rounded-2xl p-4 flex items-center gap-4">
+        <div className="bg-[#1A3028] rounded-2xl p-4 flex items-center gap-4">
           <span className="text-4xl">⏱️</span>
           <div>
             <p className="text-white font-bold text-lg">Previsão de entrega</p>
-            <p className="text-red-100 text-sm">20 – 40 minutos</p>
+            <p className="text-green-300 text-sm">20 – 40 minutos</p>
           </div>
         </div>
 
@@ -86,24 +86,24 @@ export default function OrderPage({ params }: { params: { id: string } }) {
 
         {/* Contact */}
         <div className="bg-white rounded-2xl shadow-sm p-4 flex items-center gap-3">
-          <span className="text-3xl">📞</span>
+          <span className="text-3xl">📸</span>
           <div>
-            <p className="text-sm font-semibold text-[#1A0000]">Precisa de ajuda?</p>
-            <p className="text-xs text-gray-500">Entre em contato pelo WhatsApp</p>
+            <p className="text-sm font-semibold text-[#1A0000]">Dúvidas ou problemas?</p>
+            <p className="text-xs text-gray-500">Fale com a gente pelo Instagram</p>
           </div>
           <a
-            href="https://wa.me/5500000000000"
+            href="https://www.instagram.com/adaracafe.sp/"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-auto bg-green-500 hover:bg-green-600 transition-colors text-white text-xs font-bold px-3 py-2 rounded-full"
+            className="ml-auto bg-[#1A3028] hover:bg-[#0f2019] transition-colors text-white text-xs font-bold px-3 py-2 rounded-full whitespace-nowrap"
           >
-            WhatsApp
+            @adaracafe.sp
           </a>
         </div>
 
         <Link
           href="/"
-          className="block w-full text-center bg-[#C01818] hover:bg-[#8B0000] transition-colors text-white py-3 rounded-full font-bold"
+          className="block w-full text-center bg-[#C01818] hover:bg-[#A01010] transition-colors text-white py-3 rounded-full font-bold"
         >
           ☕ Fazer novo pedido
         </Link>

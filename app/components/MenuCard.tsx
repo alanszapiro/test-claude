@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { MenuItem } from "../lib/menu-data";
 import { useCart } from "../lib/cart-context";
 
@@ -8,7 +9,9 @@ const bgColors: Record<string, string> = {
   bowls: "bg-green-50",
   paes: "bg-yellow-50",
   doces: "bg-red-50",
-  sucos: "bg-amber-50",
+  sucos: "bg-pink-50",
+  cafes: "bg-amber-50",
+  bebidas: "bg-blue-50",
 };
 
 export default function MenuCard({ item }: { item: MenuItem }) {
@@ -18,14 +21,24 @@ export default function MenuCard({ item }: { item: MenuItem }) {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
       <div
-        className={`${bgColors[item.category] ?? "bg-gray-50"} h-28 flex items-center justify-center text-5xl relative`}
+        className={`${bgColors[item.category] ?? "bg-gray-50"} h-36 flex items-center justify-center text-5xl relative overflow-hidden`}
       >
         {item.badge && (
-          <span className="absolute top-2 left-2 bg-[#C01818] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+          <span className="absolute top-2 left-2 z-10 bg-[#C01818] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
             {item.badge}
           </span>
         )}
-        {item.emoji}
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 50vw, 33vw"
+          />
+        ) : (
+          <span>{item.emoji}</span>
+        )}
       </div>
 
       <div className="p-3 flex flex-col flex-1 gap-1">
