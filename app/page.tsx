@@ -44,12 +44,15 @@ export default function Home() {
                 <span className="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
                   Ter – Dom
                 </span>
+                <span className="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                  Pinheiros · SP
+                </span>
               </div>
               <h1 className="text-white text-4xl sm:text-5xl font-extrabold tracking-tight leading-none drop-shadow-lg">
                 Adara Café
               </h1>
               <p className="text-gray-200 text-sm mt-1.5">
-                Sanduíches artesanais · Bowls frescos · Doces irresistíveis
+                Sanduíches · Bowls · Doces — inspirado em NY
               </p>
             </div>
             <div className="hidden sm:flex flex-col items-end gap-1 text-right shrink-0 ml-4">
@@ -120,15 +123,53 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1A3028] text-center py-8 mt-8 px-4">
-        <div className="w-10 h-10 rounded-full bg-[#C01818] flex items-center justify-center font-bold text-xl text-white mx-auto mb-2">
-          A
+      <footer className="bg-[#1A3028] mt-8 px-4 py-10">
+        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row gap-8 items-start justify-between">
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-[#C01818] flex items-center justify-center font-bold text-2xl text-white shrink-0">
+              A
+            </div>
+            <div>
+              <p className="font-bold text-white text-lg tracking-wide leading-tight">Adara Café</p>
+              <p className="text-green-300 text-xs mt-0.5">Inspirado em Nova York · Pinheiros</p>
+            </div>
+          </div>
+
+          {/* Info */}
+          <div className="flex flex-col sm:flex-row gap-8 text-sm">
+            <div>
+              <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-2">Endereço</p>
+              <p className="text-gray-200">R. Dr. Virgílio de Carvalho Pinto, 179</p>
+              <p className="text-gray-400">Pinheiros · São Paulo – SP</p>
+              <p className="text-gray-400">CEP 05415-030</p>
+            </div>
+            <div>
+              <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-2">Horários</p>
+              <p className="text-gray-200">Terça a Sábado</p>
+              <p className="text-gray-400">08:00 – 19:30</p>
+              <p className="text-gray-200 mt-1">Domingo</p>
+              <p className="text-gray-400">08:00 – 17:00</p>
+            </div>
+            <div>
+              <p className="text-green-400 font-semibold text-xs uppercase tracking-widest mb-2">Redes</p>
+              <a
+                href="https://www.instagram.com/adaracafe.sp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-200 hover:text-white transition-colors"
+              >
+                @adaracafe.sp
+              </a>
+            </div>
+          </div>
         </div>
-        <p className="font-bold text-white text-lg tracking-wide">Adara Café</p>
-        <p className="text-green-300 text-xs mt-1">Ter – Sáb · Dom — Delivery próprio</p>
-        <p className="text-gray-500 text-xs mt-3">
-          © {new Date().getFullYear()} Adara Café — Todos os direitos reservados
-        </p>
+
+        <div className="max-w-4xl mx-auto border-t border-white/10 mt-8 pt-4 text-center">
+          <p className="text-gray-600 text-xs">
+            © {new Date().getFullYear()} Adara Café — Todos os direitos reservados
+          </p>
+        </div>
       </footer>
     </div>
   );
