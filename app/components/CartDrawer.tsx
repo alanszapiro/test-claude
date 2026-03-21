@@ -61,6 +61,11 @@ export default function CartDrawer() {
                       })}{" "}
                       cada
                     </p>
+                    {item.notes && (
+                      <p className="text-xs text-[#C01818] mt-0.5 leading-tight">
+                        Obs: {item.notes}
+                      </p>
+                    )}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <button

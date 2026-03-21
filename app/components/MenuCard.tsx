@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import type { MenuItem } from "../lib/menu-data";
 import { useCart } from "../lib/cart-context";
+import ItemModal from "./ItemModal";
 
 const bgColors: Record<string, string> = {
   sanduiches: "bg-orange-50",
@@ -17,67 +19,91 @@ const bgColors: Record<string, string> = {
 export default function MenuCard({ item }: { item: MenuItem }) {
   const { addItem, items } = useCart();
   const cartItem = items.find((i) => i.id === item.id);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleConfirm = (notes: string) => {
+    addItem(item, notes || undefined);
+    setModalOpen(false);
+  };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
-      <div
-        className={`${bgColors[item.category] ?? "bg-gray-50"} h-36 flex items-center justify-center text-5xl relative overflow-hidden`}
-      >
-        {item.badge && (
-          <span className="absolute top-2 left-2 z-10 bg-[#C01818] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-            {item.badge}
-          </span>
-        )}
-        {item.image ? (
-          <Image
-            src={item.image}
-            alt={item.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 50vw, 33vw"
-          />
-        ) : (
-          <span>{item.emoji}</span>
-        )}
-      </div>
+    <>
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+        <div
+          className={`${bgColors[item.category] ?? "bg-gray-50"} h-36 flex items-center justify-center text-5xl relative overflow-hidden`}
+        >
+          {item.badge && (
+            <span className="absolute top-2 left-2 z-10 bg-[#C01818] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+              {item.badge}
+            </span>
+          )}
+          {item.image ? (
+            <Image
+              src={item.image}
+              alt={item.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 50vw, 33vw"
+            />
+          ) : (
+            <span>{item.emoji}</span>
+          )}
+        </div>
 
-      <div className="p-3 flex flex-col flex-1 gap-1">
-        <h3 className="font-bold text-[#1A0000] text-sm leading-tight">{item.name}</h3>
-        <p className="text-gray-500 text-xs leading-relaxed flex-1">{item.description}</p>
+        <div className="p-3 flex flex-col flex-1 gap-1">
+          <h3 className="font-bold text-[#1A0000] text-sm leading-tight">{item.name}</h3>
+          <p className="text-gray-500 text-xs leading-relaxed flex-1">{item.description}</p>
 
-        <div className="flex items-center justify-between mt-2">
-          <span className="font-bold text-[#1A0000] text-base">
-            R${" "}
-            {item.price.toLocaleString("pt-BR", {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          </span>
+          <div className="flex items-center justify-between mt-2">
+            <span className="font-bold text-[#1A0000] text-base">
+              R${" "}
+              {item.price.toLocaleString("pt-BR", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </span>
 
-          {cartItem ? (
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-[#C01818] font-semibold">
-                {cartItem.quantity} no carrinho
-              </span>
+            {cartItem ? (
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-[#C01818] font-semibold">
+                  {cartItem.quantity} no carrinho
+                </span>
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="w-8 h-8 rounded-full bg-[#C01818] text-white flex items-center justify-center text-lg font-bold hover:bg-[#8B0000] transition-colors"
+                  aria-label="Adicionar mais"
+                >
+                  +
+                </button>
+              </div>
+            ) : (
               <button
-                onClick={() => addItem(item)}
+                onClick={() => setModalOpen(true)}
                 className="w-8 h-8 rounded-full bg-[#C01818] text-white flex items-center justify-center text-lg font-bold hover:bg-[#8B0000] transition-colors"
-                aria-label="Adicionar mais"
+                aria-label="Adicionar ao carrinho"
               >
                 +
               </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => addItem(item)}
-              className="w-8 h-8 rounded-full bg-[#C01818] text-white flex items-center justify-center text-lg font-bold hover:bg-[#8B0000] transition-colors"
-              aria-label="Adicionar ao carrinho"
-            >
-              +
-            </button>
+            )}
+          </div>
+
+          {cartItem?.notes && (
+            <p className="text-xs text-[#C01818] mt-1 truncate">
+              Obs: {cartItem.notes}
+            </p>
           )}
         </div>
       </div>
-    </div>
+
+      {modalOpen && (
+        <ItemModal
+          item={item}
+          currentNotes={cartItem?.notes ?? ""}
+          isInCart={!!cartItem}
+          onConfirm={handleConfirm}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+    </>
   );
 }

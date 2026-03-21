@@ -220,16 +220,21 @@ export default function AdminPage() {
                         Itens
                       </p>
                       {order.items.map((item, i) => (
-                        <div key={i} className="flex justify-between text-sm">
-                          <span className="text-gray-700">
-                            {item.quantity}× {item.name}
-                          </span>
-                          <span className="font-medium text-[#1A0000]">
-                            R${" "}
-                            {(item.price * item.quantity).toLocaleString("pt-BR", {
-                              minimumFractionDigits: 2,
-                            })}
-                          </span>
+                        <div key={i} className="text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-gray-700">
+                              {item.quantity}× {item.name}
+                            </span>
+                            <span className="font-medium text-[#1A0000]">
+                              R${" "}
+                              {(item.price * item.quantity).toLocaleString("pt-BR", {
+                                minimumFractionDigits: 2,
+                              })}
+                            </span>
+                          </div>
+                          {item.notes && (
+                            <p className="text-xs text-[#C01818] mt-0.5">Obs: {item.notes}</p>
+                          )}
                         </div>
                       ))}
                     </div>

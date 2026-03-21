@@ -3,11 +3,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { MenuItem } from "./menu-data";
 
-export type CartItem = MenuItem & { quantity: number };
+export type CartItem = MenuItem & { quantity: number; notes?: string };
 
 type CartContextType = {
   items: CartItem[];
-  addItem: (item: MenuItem) => void;
+  addItem: (item: MenuItem, notes?: string) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, qty: number) => void;
   clearCart: () => void;
@@ -36,15 +36,17 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("adara-cart", JSON.stringify(items));
   }, [items]);
 
-  const addItem = (item: MenuItem) => {
+  const addItem = (item: MenuItem, notes?: string) => {
     setItems((prev) => {
       const existing = prev.find((i) => i.id === item.id);
       if (existing) {
         return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+          i.id === item.id
+            ? { ...i, quantity: i.quantity + 1, notes: notes ?? i.notes }
+            : i
         );
       }
-      return [...prev, { ...item, quantity: 1 }];
+      return [...prev, { ...item, quantity: 1, notes: notes || undefined }];
     });
     setIsOpen(true);
   };

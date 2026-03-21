@@ -28,12 +28,10 @@ const PAYMENT_LABELS: Record<string, string> = {
 
 function buildWhatsAppText(order: Order): string {
   const itemsText = order.items
-    .map(
-      (i) =>
-        `${i.quantity}x ${i.name} — R$${(i.price * i.quantity)
-          .toFixed(2)
-          .replace(".", ",")}`
-    )
+    .map((i) => {
+      const line = `${i.quantity}x ${i.name} — R$${(i.price * i.quantity).toFixed(2).replace(".", ",")}`;
+      return i.notes ? `${line}\n   ↳ Obs: ${i.notes}` : line;
+    })
     .join("\n");
 
   const address = [
@@ -243,16 +241,21 @@ export default function OrderPage({
         <div className="bg-white rounded-2xl shadow-sm p-4 space-y-2">
           <h3 className="font-bold text-[#1A0000] text-sm">Resumo do pedido</h3>
           {order.items.map((item, i) => (
-            <div key={i} className="flex justify-between text-sm">
-              <span className="text-gray-600">
-                {item.quantity}× {item.name}
-              </span>
-              <span className="font-medium text-[#1A0000]">
-                R${" "}
-                {(item.price * item.quantity).toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                })}
-              </span>
+            <div key={i} className="text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-600">
+                  {item.quantity}× {item.name}
+                </span>
+                <span className="font-medium text-[#1A0000]">
+                  R${" "}
+                  {(item.price * item.quantity).toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
+              </div>
+              {item.notes && (
+                <p className="text-xs text-[#C01818] mt-0.5">Obs: {item.notes}</p>
+              )}
             </div>
           ))}
           <div className="border-t border-gray-100 pt-2 flex justify-between font-bold text-[#1A0000]">

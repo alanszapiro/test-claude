@@ -73,6 +73,7 @@ export default function CheckoutPage() {
           name: i.name,
           price: i.price,
           quantity: i.quantity,
+          notes: i.notes || undefined,
         })),
         total,
       }),
@@ -125,17 +126,22 @@ export default function CheckoutPage() {
         <section className="bg-white rounded-2xl shadow-sm p-4 space-y-3">
           <h2 className="font-bold text-[#1A0000] text-base">Resumo do pedido</h2>
           {items.map((item) => (
-            <div key={item.id} className="flex items-center justify-between text-sm">
-              <span className="text-gray-700">
-                {item.quantity}× {item.name}
-              </span>
-              <span className="font-semibold text-[#1A0000]">
-                R${" "}
-                {(item.price * item.quantity).toLocaleString("pt-BR", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-              </span>
+            <div key={item.id} className="text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-700">
+                  {item.quantity}× {item.name}
+                </span>
+                <span className="font-semibold text-[#1A0000]">
+                  R${" "}
+                  {(item.price * item.quantity).toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </span>
+              </div>
+              {item.notes && (
+                <p className="text-xs text-[#C01818] mt-0.5">Obs: {item.notes}</p>
+              )}
             </div>
           ))}
           <div className="border-t border-gray-100 pt-2 flex justify-between font-bold text-[#1A0000]">
